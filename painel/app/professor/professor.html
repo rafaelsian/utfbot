@@ -1,0 +1,93 @@
+<div class="container">
+    <div class="card card-container" style="max-width: 800px">
+        <h2 class="text-center">Cadastrar Professor</h2>
+<!--         <a ng-click="downloadAll()" class="btn btn-lg btn-primary btn-signin" style="position: relative;  top: -38px; right: -86%;">Download</a>
+        <a ng-click="youtubersAutomaticRegister()" class="btn btn-lg btn-primary btn-signin" style="position: relative;  top: -38px; right: -86%;">AUTOMATIC REGISTER</a> -->
+
+<!--         <a ng-click="youtubersAutomaticRegister()" class="btn btn-lg btn-primary btn-signin" style="position: relative;  top: -38px; left: 0%;">AUTOMATIC REGISTER</a>
+        <a ng-click="downloadAll()" class="btn btn-lg btn-primary btn-signin" style="position: relative;  top: -38px; right: -59%;">Download</a>
+        <br> -->
+        <!-- Abas -->
+<!--         <ul class="nav nav-tabs nav-justified">
+            <li ng-repeat="dataItem in data | orderBy:['name']" role="presentation" ng-class="{'active': category == dataItem.category}" ng-click="setCategory(dataItem)">
+                <a href="">{{ dataItem.name }}</a>
+            </li>
+        </ul> -->
+<!--         <label>Categoria:</label>
+        <select class="form-control" ng-model="selectedItem" ng-change="setCategory()">
+            <option ng-repeat="dataItem in data | orderBy:['name']" ng-value="dataItem.category">{{ dataItem.name }}</option>
+        </select> -->
+        <hr>
+        <!-- FORMULÁRIO QUESTOES -->
+        <form ng-submit="registerQuestion(item)" style="margin-bottom: 15px">
+            <!-- <div class="panel panel-primary"> -->
+                <div>
+                    <label for="nome">Nome do(a) Professor(a):</label>
+                    <input type="text" id="nome" ng-model="item.nome" class="form-control" placeholder="Nome" style="margin-bottom: 15px" required>
+                </div>
+                <div>
+                    <label for="sinonimo">Sinônimos (separar por vírgulas):</label><br> 
+                    <input type="text" id="sinonimo" ng-model="item.sinonimo" class="form-control" placeholder="Apelidos, sobrenomes, etc" style="margin-bottom: 15px" required>
+                </div>
+                <div>
+                    <label for="titulacao">Titulação:</label>
+                    <select class="form-control" ng-model="item.titulacao">
+                        <option ng-repeat="itemOption in itemsList | orderBy:['itemsList']">{{ itemOption }}</option>
+                    </select>
+                </div>
+                <br>
+                <div>
+                    <label for="escaninho">Número do Escaninho:</label>
+                    <input type="text" id="escaninho" ng-model="item.escaninho" class="form-control" placeholder="Escaninho" style="margin-bottom: 15px" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" ng-model="item.email" class="form-control" placeholder="Email" style="margin-bottom: 15px" required>
+                </div>
+                <div>
+                    <label for="departamento">Departamento:</label>
+                    <select class="form-control" ng-model="item.departamento">
+                        <option ng-repeat="itemOption in itemsListDepartamento | orderBy:['itemsListDepartamento']">{{ itemOption }}</option>
+                    </select>
+                </div>
+                <br>
+                <div>
+                    <label for="ramal">Ramal:</label>
+                    <input type="text" id="ramal" ng-model="item.ramal" class="form-control" placeholder="Ramal" style="margin-bottom: 15px" required>
+                </div>
+
+            <!-- </div> -->
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Cadastrar</button>
+        </form>
+        <!-- TABELA DE PERGUNTAS -->
+        <hr>
+        <label>Busca:</label>
+        <input ng-model="searchText.sinonimo" style="width: 100%"><br><br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <!-- <th>#</th> -->
+                    <!-- <th>ID</th> -->
+                    <th>Nome</th>
+                    <th>Sinônimos</th>
+                    <th>Escaninho</th>
+                    <th>Email</th>
+                    <th>Departamento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in professores | filter:searchText">
+                    <!-- <td scope="row">{{ questions.indexOf(item) }}</td> -->
+                    <td scope="row">{{ item.nome }}</td>
+                    <td scope="row">{{ item.sinonimo }}</td>
+                    <td scope="row">{{ item.escaninho }}</td>
+                    <td scope="row">{{ item.email }}</td>
+                    <td scope="row">{{ item.departamento }}</td>
+                    <td>
+                        <button ng-click="removeProfessor(professores.indexOf(item))">X</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

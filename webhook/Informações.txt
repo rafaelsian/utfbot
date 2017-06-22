@@ -1,0 +1,1 @@
+Necessita do Simple HTML DOM e Firebase PHP

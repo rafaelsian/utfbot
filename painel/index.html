@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-br" ng-app="UTFBotDashboard">
+
+<head>
+    <meta charset="utf-8">
+    <title>UTFBot Dashboard</title>
+    <!-- JQUERY -->
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-theme.min.css">
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- ANGULAR JS -->
+    <script src="lib/angular/angular.min.js"></script>
+    <!-- ANGULAR JS - ROUTER -->
+    <script src="lib/angular-route/angular-route.min.js"></script>
+    <!-- ANGULAR JS - ANIMATE -->
+    <script src="lib/angular-animate/angular-animate.min.js"></script>
+    <!-- ANGULAR JS - LOADING BAR -->
+    <link rel='stylesheet' href='lib/angular-loading-bar/build/loading-bar.min.css' type='text/css' media='all' />
+    <script type='text/javascript' src='lib/angular-loading-bar/build/loading-bar.min.js'></script>
+    <!-- FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    <!-- JSZip & FileSaver -->
+    <script src="lib/JSZip/jszip.min.js"></script>
+    <script src="lib/JSZip/FileSaver.min.js"></script>
+    <!-- QUIZ DASHBOARD - APP -->
+    <link rel="stylesheet" href="app/style.css">
+    <link rel="stylesheet" href="app/animation.css">
+    <script src="app/app.js"></script>
+    <!-- QUIZ DASHBOARD - LOGIN -->
+    <script src="app/login/login.js"></script>
+
+    <script src="app/professor/professor.js"></script>
+    <script src="app/departamento/departamento.js"></script>
+
+</head>
+
+<body>
+    <!-- Menu Flutuante -->
+    <ul class="sideFloatMenu" ng-if="loggedIn()">
+        <a href="#/professor">
+            <li>
+                <img src="https://cdn3.iconfinder.com/data/icons/medcare/512/professor-512.png" width="32" height="32"> &nbsp; Cadastrar Professor
+            </li>
+        </a>
+        <a href="#/departamento">
+            <li>
+                <img src="https://maxcdn.icons8.com/Share/icon/Business//department1600.png" width="32" height="32"> &nbsp; Cadastrar Departamento
+            </li>
+        </a>
+        <a href="" ng-click="logout()">
+            <li>
+                <!-- Exit icon by Icons8 -->
+                <img class="icon icons8-Exit" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAACfElEQVRoQ+2a/VHdMBDElwoCFSRUAFRA0kFSAVABUAGkAtJBkg7SAaECoAKgA6gA5sfIMxpFH2ePbMsv1r9Pz7q9Pa33JG/JNo4knUnat02vPutO0g9Jv0tP3ipM2JZ0PSOQMDyAfZH0nIq7BOi2ITAdBkAdDAFEiV2VKJ7p9xNJv2Jr5xgK2bmRdCzpcWIQn1zwh966SZZygF6DwHdnANOFAKiHIJ5o7H0Alfbb2MSFCV4BmTIyNi3e803xrCU3ISPhUitDgzIyIWOLYQjTeepenjiA1OClztwPbkKzsu1nHjtznjGfuP2/DtQiAJH8kqMGFMCjrUwLsh3uDUDhF785cLESpK2JthCtAgIEAdP7wJh5tAyoA5FsFfq2DyaZNKcuPTFWcuHsS0nfLWvVZOizpJ+SsPpjDIQgJ+vva9YERL8yFpguQUg2YjHoTKFvyVlKpwZziASgop1zTYamApRVwKUC6kCxp/74tC8ZUFTWV0CZXT3lHiKMF3esthElBxjee//YoiWW3L2kr1PINi+7rvmq8b6JPYPTW8BM8mKlBLAnH0dCw1UKXWt21Cy50lqp3y1igjHFoBbHEgBtTPuQVLIcTa0y9OQ2f6pbXVQLjiwjMCkl43CEvit6i9cCQ77co2TcHObAcOcLQ80eY6FeF+6GOyfL/MYVKWCSzWkLDBWl2E0wNZwrIGs6R5i3MhQm1ZSREZiwWqRmVc6aE1OC/2tR2Mn1IdY0D5xX5cMLfNSeFwCnljjfOT6Nwepgh7qBPep9P7RxHy+RjZClgRVT9W9JdpJ+yFse30Sp+aVXNbqeDys58eztg78WxpASnAsYQLgBj34j5wf6Blq3pjVTxJy7AAAAAElFTkSuQmCC" width="32" height="32"> &nbsp; Logout
+            </li>
+        </a>
+    </ul>
+    <!-- Views -->
+    <div ng-view class="view-animate"></div>
+</body>
+
+</html>

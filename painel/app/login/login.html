@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="card card-container">
+        <h4 class="text-center">Área do Admnistrador</h4>
+        <!-- AVATAR DO USUARIO (CINZA) -->
+        <img id="profile-img" class="profile-img-card" src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+        <!-- FORMULÁRIO DE LOGIN -->
+        <form class="form-signin" id="form-signin" ng-submit="login(username, password)">
+            <input type="email" id="username" ng-model="username" class="form-control" placeholder="Usuário" required autofocus>
+            <input type="password" ng-model="password" class="form-control" placeholder="Senha" required>
+            <!-- MENSAGEM DE ERRO -->
+            <p id="profile-name" class="profile-name-card" style="color: red">{{ msg }}</p>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Entrar</button>
+        </form>
+    </div>
+</div>

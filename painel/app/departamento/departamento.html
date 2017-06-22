@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="card card-container" style="max-width: 800px">
+        <h2 class="text-center">Cadastrar Departamento</h2>
+        <hr>
+        <!-- FORMULÁRIO QUESTOES -->
+        <form ng-submit="registerItem(item)" style="margin-bottom: 15px">
+            <!-- <div class="panel panel-primary"> -->
+                <div>
+                    <label for="sigla">Sigla do Departamento:</label>
+                    <input type="text" id="sigla" ng-model="item.sigla" class="form-control" placeholder="Nome" style="margin-bottom: 15px" required>
+                </div>
+                <div>
+                    <label for="sinonimo">Sinônimos (separar por vírgulas):</label><br> 
+                    <input type="text" id="sinonimo" ng-model="item.sinonimo" class="form-control" placeholder="Siglas, nome por extenso, apelidos, etc" style="margin-bottom: 15px" required>
+                </div>
+
+            <!-- </div> -->
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Cadastrar</button>
+        </form>
+        <!-- TABELA DE PERGUNTAS -->
+        <hr>
+        <label>Busca:</label>
+        <input ng-model="searchText.sinonimo" style="width: 100%"><br><br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <!-- <th>#</th> -->
+                    <!-- <th>ID</th> -->
+                    <th>Sigla</th>
+                    <th>Sinônimos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in itens | filter:searchText">
+                    <!-- <td scope="row">{{ questions.indexOf(item) }}</td> -->
+                    <td scope="row">{{ item.sigla }}</td>
+                    <td scope="row">{{ item.sinonimo }}</td>
+                    <td>
+                        <button ng-click="removeItem(itens.indexOf(item))">X</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
